@@ -17,15 +17,16 @@ const pushTodo = (todo) => {
   })
 }
 
-const deleteTodo = (id) => {
-  console.log(id)
+const removeTodo = (id) => {
+  const indexOfTodo = todos.value.findIndex(todo => todo.id === id)
+  todos.value.splice(indexOfTodo, 1)
 }
 </script>
 
 <template>
   <div class="flex flex-wrap justify-center">
     <AddTodo @push-todo="pushTodo" />
-    <TodoList :todos="todos" @delete-todo="deleteTodo" />
+    <TodoList :todos="todos" @delete-todo="removeTodo" />
   </div>
 </template>
 
